@@ -1,0 +1,58 @@
+{
+  "fullPackageName": "com.apero.testai",
+  "applicationClass": "com.apero.testai.App",
+  "sharedPrefClass": "com.apero.testai.pref.SharedPref",
+  "commonConfig": {
+    "appName": "My App",
+    "authority": "com.apero.testai.provider",
+    "emailReport": "support@example.com",
+    "emailCCReport": [
+      "dev1@example.com",
+      "dev2@example.com"
+    ],
+    "appLinkWithTag": "example.com/myapp #MyApp",
+    "nameStyle": "MyAppStyle"
+  },
+  "serviceConfig": {
+    "appId": "com.apero.testai",
+    "projectName": "PROJECT_MYAPP_ANDROID",
+    "requestHash": "abc123XYZ",
+    "urlIntegrity": "url_integrity_example",
+    "cloudProjectNumber": 1234567890
+  },
+  "adsConfig": {
+    "rewardGenAllFeatureHigh": "ca-app-pub-xxx/reward_high",
+    "rewardGenAllFeatureNormal": "ca-app-pub-xxx/reward_normal",
+    "idBannerAllFeatureHigh": "ca-app-pub-xxx/banner_all_high",
+    "idBannerAllFeatureNormal": "ca-app-pub-xxx/banner_all_normal",
+    "idBannerShareHigh": "ca-app-pub-xxx/banner_share_high",
+    "idBannerShareNormal": "ca-app-pub-xxx/banner_share_normal",
+    "idBannerStyleHigh": "ca-app-pub-xxx/banner_style_high",
+    "idBannerStyleNormal": "ca-app-pub-xxx/banner_style_normal",
+    "idNativeHighFloor": "ca-app-pub-xxx/native_high_floor",
+    "idNativeNormalFloor": "ca-app-pub-xxx/native_normal_floor",
+    "idInterstitialHighPriority": "ca-app-pub-xxx/interstitial_high",
+    "idInterstitialMediumPriority": "ca-app-pub-xxx/interstitial_medium",
+    "idInterstitialLowPriority": "ca-app-pub-xxx/interstitial_low",
+    "idRewardGenRestoreHigh": "ca-app-pub-xxx/reward_restore_high",
+    "idRewardGenRestoreNormal": "ca-app-pub-xxx/reward_restore_normal",
+    "idBannerAdStyleHigh": "ca-app-pub-xxx/banner_ad_style_high",
+    "idBannerAdStyleNormal": "ca-app-pub-xxx/banner_ad_style_normal",
+    "idRewardGenTemplateHigh": "ca-app-pub-xxx/reward_template_high",
+    "idRewardGenTemplateNormal": "ca-app-pub-xxx/reward_template_normal",
+    "idBannerTemplateHigh": "ca-app-pub-xxx/banner_template_high",
+    "idBannerTemplateNormal": "ca-app-pub-xxx/banner_template_normal",
+    "idBannerArtHigh": "ca-app-pub-xxx/banner_art_high",
+    "idBannerArtNormal": "ca-app-pub-xxx/banner_art_normal",
+    "idRewardGenArtHigh": "ca-app-pub-xxx/reward_gen_art_high",
+    "idRewardGenArtNormal": "ca-app-pub-xxx/reward_gen_art_normal",
+    "idRewardGenArtPremiumHigh": "ca-app-pub-xxx/reward_gen_art_premium_high",
+    "idRewardGenArtPremiumNormal": "ca-app-pub-xxx/reward_gen_art_premium_normal",
+    "idBannerArtPremiumHigh": "ca-app-pub-xxx/banner_art_premium_high",
+    "idBannerArtPremiumNormal": "ca-app-pub-xxx/banner_art_premium_normal",
+    "idBannerRemoveBgHigh": "ca-app-pub-xxx/banner_remove_bg_high",
+    "idBannerRemoveBgNormal": "ca-app-pub-xxx/banner_remove_bg_normal",
+    "idRewardGenRemoveBgHigh": "ca-app-pub-xxx/reward_gen_remove_bg_high",
+    "idRewardGenRemoveBgNormal": "ca-app-pub-xxx/reward_gen_remove_bg_normal"
+  }
+}

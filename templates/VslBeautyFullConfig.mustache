@@ -1,0 +1,18 @@
+package {{packageName}}.utils.beauty_full
+
+import vn.apero.vslbeautyfull.config.VslBeautyFullConfig
+
+class BeautyFullConfig(
+    commonConfig: VslBeautyFullCommonConfig,
+    shareUiConfig: VslBeautyFullBaseUiConfig,
+    allFeatureUiConfig: VslBeautyFullBaseUiConfig,
+    allFeatureAdsIdConfig: VslBeautyFullAllFeatureAdsIdConfig,
+    serviceConfig: VslBeautyFullServiceConfig,
+    subFeatureConfig: VslBeautyFullSubFeatureConfig
+) : VslBeautyFullConfig,
+    VslBeautyFullCommonConfig by commonConfig,
+    VslBeautyFullShareUiConfig by shareUiConfig,
+    VslBeautyFullAllFeatureUiConfig by allFeatureUiConfig,
+    VslBeautyFullAllFeatureAdsIdConfig by allFeatureAdsIdConfig,
+    VslBeautyFullServiceConfig by serviceConfig,
+    VslBeautyFullSubFeatureConfig by subFeatureConfig

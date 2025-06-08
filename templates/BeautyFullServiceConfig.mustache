@@ -1,0 +1,12 @@
+package {{packageName}}.utils.beauty_full
+
+import vn.apero.vslbeautyfull.config.VslBeautyFullServiceConfig
+
+class BeautyFullServiceConfig : VslBeautyFullServiceConfig {
+    override val appId: String
+        get() = BuildConfig.APPLICATION_ID
+    override val projectName: String = "APP_PERFECTME_ANDROID"
+    override val requestHash: String = "Glorci"
+    override val urlIntegrity: String = "url_integrity_dev"
+    override val cloudProjectNumber: Long = 1004234323806
+}
