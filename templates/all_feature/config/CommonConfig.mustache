@@ -1,0 +1,32 @@
+package {{packageName}}
+
+import android.content.Context
+import com.apero.beauty_full.api.config.VslBeautyFullCommonConfig
+import {packageName}.data.sharedpref.SharedPref
+import {packageName}.R
+import {packageName}.ui.screen.home.HomeActivity
+import {packageName}.ui.screen.photo.PickPhotoActivity
+
+
+class CommonConfig(private val sharedPref: SharedPref, private val applicationContext: Context) : VslBeautyFullCommonConfig {
+    override val languageCode: String
+        get() = sharedPref.languageCode ?: "en"
+    override val nameStyle: String
+        get() = "" // "{app name}"
+    override val pickPhotoClass: Class<*>
+        get() = PickPhotoActivity::class.java
+    override val homeClass: Class<*>
+        get() = HomeActivity::class.java
+    override val nativeLayout: Int
+        get() = R.layout.layout_native_lfo_and_onb_top_bt
+    override val loadingNativeLayout: Int
+        get() = R.layout.layout_loading_native_large
+    override val emailReport: String = "product.vsl@apero.vn"
+    override val emailCCReport: List<String> = mutableListOf("nhunglth@apero.vn","ngocpnb@apero.vn")
+    override val language: String
+        get() = sharedPref.languageCode ?: "en"
+    override val appName: Int = R.string.app_name
+    override val appLinkWithTag: String = "apero.vn/perfectme #Perfectme" // "apero.vn/{app name} #{app name}"
+
+    override val authority: String = "${applicationContext.packageName}.fileprovider"
+}

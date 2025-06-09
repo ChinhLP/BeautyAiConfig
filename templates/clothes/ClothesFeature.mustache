@@ -1,0 +1,35 @@
+package {{packageName}.utils.clothes}
+
+
+import com.apero.beauty_full.api.config.subfeauture.VslBeautyFullClothesFeature
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslAdsConfigModel
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslConfigPickPhotoModel
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslFontsConfigModel
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslIconsConfigModel
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslStringConfigDialogModel
+import com.apero.beauty_full.common.clothes.config.modelconfig.VslStringsConfigModel
+import {packageName}.data.sharedpref.SharedPref
+import {packageName}.BuildConfig
+import org.koin.mp.KoinPlatform
+
+
+object ClothesFeature : VslBeautyFullClothesFeature {
+    val sharedPref: SharedPref = KoinPlatform.getKoin().get()
+    override val fonts: VslFontsConfigModel
+        get() = VslFontsConfigModel()
+    override val icons: VslIconsConfigModel
+        get() = VslIconsConfigModel()
+    override val strings: VslStringsConfigModel
+        get() = VslStringsConfigModel()
+    override val stringsDialog: VslStringConfigDialogModel
+        get() = VslStringConfigDialogModel()
+    override val pickPhoto: VslConfigPickPhotoModel
+        get() = VslConfigPickPhotoModel()
+    override val adsConfig: VslAdsConfigModel
+        get() = VslAdsConfigModel(
+            BuildConfig.reward_gen_hair_normal,
+            BuildConfig.reward_gen_hair_high,
+            BuildConfig.show_outfit_gen_o_reward,
+            BuildConfig.show_outfit_gen_o_reward_high,
+        )
+}

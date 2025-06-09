@@ -1,0 +1,11 @@
+package {{packageName}.utils.restore}
+
+
+import {packageName}.data.sharedpref.SharedPref
+import com.apero.restore.api.config.ui.VslRestoreUiConfig
+import org.koin.mp.KoinPlatform
+
+class RestoreUiConfig: VslRestoreUiConfig {
+    override val numberShowDialogServiceRestoreError: Int
+        get() = KoinPlatform.getKoin().get<SharedPref>().numberShowDialogServiceError
+}

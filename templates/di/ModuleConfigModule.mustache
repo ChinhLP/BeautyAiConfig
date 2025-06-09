@@ -1,0 +1,143 @@
+package {{packageName}.di}
+
+import {packageName}.utils.art.ArtAdsConfig
+import {packageName}.utils.art.ArtUiConfig
+import {packageName}.utils.setupexpand.ExpandAdsConfig
+import com.apero.art.api.config.VslArtFeature
+import com.apero.art.api.config.ads.VslArtAdsConfig
+import com.apero.art.api.config.ui.VslArtUiConfig
+import com.apero.beautify_template.api.config.VslBeautifyTemplateFeature
+import com.apero.beautify_template.api.config.ui.VslBeautifyTemplateUiConfig
+import com.apero.beauty_full.api.config.VslBeautyFullCommonConfig
+import com.apero.beauty_full.api.config.VslBeautyFullConfig
+import com.apero.beauty_full.api.config.VslBeautyFullServiceConfig
+import com.apero.beauty_full.api.config.ads.VslBeautyFullAllFeatureAdsIdConfig
+import com.apero.beauty_full.api.config.subfeauture.VslBeautyFullClothesFeature
+import com.apero.beauty_full.api.config.subfeauture.VslBeautyFullSubFeatureConfig
+import com.apero.beauty_full.api.config.subfeauture.config_art_premium.VslArtPremiumFeature
+import com.apero.beauty_full.api.config.subfeauture.config_art_premium.ui.VslArtPremiumUiConfig
+import com.apero.beauty_full.api.config.subfeauture.remove_background.VslRemoveBgFeature
+import com.apero.beauty_full.api.config.subfeauture.remove_background.VslRemoveBgUiConfig
+import com.apero.beauty_full.api.config.ui.VslBeautyFullAllFeatureUiConfig
+import com.apero.beauty_full.api.config.ui.VslBeautyFullShareUiConfig
+import com.apero.beauty_full.common.enhance.api.config.VslBeautyFullEnhanceFeature
+import com.apero.beauty_full.common.enhance.api.config.VslEnhanceAdsConfig
+import com.apero.beauty_full.common.enhance.api.config.VslEnhanceUiConfig
+import com.apero.beauty_full.common.expand.api.config.VslBeautyFullExpandFeature
+import com.apero.beauty_full.common.expand.api.config.VslExpandAdsConfig
+import com.apero.beauty_full.common.expand.api.config.VslExpandUiConfig
+import com.apero.beauty_full.common.removeobject.api.config.VslBeautyFullRemoveObjectFeature
+import com.apero.beauty_full.common.removeobject.api.config.VslRemoveObjectAdsConfig
+import com.apero.beauty_full.common.removeobject.api.config.VslRemoveObjectUiConfig
+import {packageName}.utils.all_feature.config.BeautyFullServiceConfig
+import {packageName}.utils.all_feature.config.BeautyFullUiConfig
+import {packageName}.utils.all_feature.config.CommonConfig
+import {packageName}.utils.all_feature.config.VslBeautyFullAdsConfig
+import {packageName}.utils.art_premium.ArtPremiumUiConfig
+import {packageName}.utils.beautifytemplate.BeautifyTemplateUiConfig
+import {packageName}.utils.clothes.ClothesFeature
+import {packageName}.utils.remove_bg.RemoveBgUiConfig
+import {packageName}.utils.restore.RestoreUiConfig
+import {packageName}.utils.setupenhance.EnhanceAdsConfig
+import {packageName}.utils.setupenhance.EnhanceUiConfig
+import {packageName}.utils.setupexpand.ExpandUiConfig
+import {packageName}.utils.setupremoveobject.RemoveAdsConfig
+import {packageName}.utils.setupremoveobject.RemoveUiConfig
+import com.apero.restore.api.config.VslRestoreFeature
+import com.apero.restore.api.config.ui.VslRestoreUiConfig
+import org.koin.android.ext.koin.androidApplication
+import org.koin.dsl.lazyModule
+
+val moduleConfigModule = lazyModule {
+    single<VslBeautyFullCommonConfig> { CommonConfig(get(), applicationContext = androidApplication()) }
+    single<VslBeautyFullAllFeatureAdsIdConfig> { VslBeautyFullAdsConfig() }
+    single<VslBeautyFullServiceConfig> { BeautyFullServiceConfig() }
+//    expand
+    single<VslExpandUiConfig> { ExpandUiConfig() }
+    single<VslExpandAdsConfig> { ExpandAdsConfig() }
+    single<VslBeautyFullExpandFeature> {
+        object : VslBeautyFullExpandFeature,
+            VslExpandUiConfig by get(),
+            VslExpandAdsConfig by get() {}
+    }
+
+//    enhance
+    single<VslEnhanceUiConfig> { EnhanceUiConfig() }
+    single<VslEnhanceAdsConfig> { EnhanceAdsConfig() }
+    single<VslBeautyFullEnhanceFeature> {
+        object : VslBeautyFullEnhanceFeature,
+            VslEnhanceUiConfig by get(),
+            VslEnhanceAdsConfig by get() {}
+    }
+
+//    VslRestoreFeature
+    single<VslRestoreUiConfig> { RestoreUiConfig() }
+    single<VslRestoreFeature> {
+        object : VslRestoreFeature,
+            VslRestoreUiConfig by get() {}
+    }
+
+//    VslBeautifyTemplateFeature
+    single<VslBeautifyTemplateUiConfig> { BeautifyTemplateUiConfig() }
+    single<VslBeautifyTemplateFeature> {
+        object : VslBeautifyTemplateFeature,
+            VslBeautifyTemplateUiConfig by get() {}
+    }
+
+//    Art
+    single<VslArtUiConfig> { ArtUiConfig() }
+    single<VslArtAdsConfig> { ArtAdsConfig() }
+    single<VslArtFeature> {
+        object : VslArtFeature,
+            VslArtUiConfig by get(),
+            VslArtAdsConfig by get() {}
+    }
+
+//    remove object
+    single<VslRemoveObjectAdsConfig> { RemoveAdsConfig() }
+    single<VslRemoveObjectUiConfig> { RemoveUiConfig() }
+    single<VslBeautyFullRemoveObjectFeature> {
+        object : VslBeautyFullRemoveObjectFeature,
+            VslRemoveObjectAdsConfig by get(),
+            VslRemoveObjectUiConfig by get() {}
+    }
+
+//    clothes
+    single<VslBeautyFullClothesFeature> { ClothesFeature }
+
+//    art premium
+    single<VslArtPremiumUiConfig> { ArtPremiumUiConfig() }
+    single<VslArtPremiumFeature> {
+        object : VslArtPremiumFeature,
+            VslArtPremiumUiConfig by get() {}
+    }
+
+
+//    VslRemoveBackground
+    single<VslRemoveBgUiConfig> { RemoveBgUiConfig }
+    single<VslRemoveBgFeature> {
+        object : VslRemoveBgFeature,
+            VslRemoveBgUiConfig by get() {}
+    }
+
+    single<VslBeautyFullSubFeatureConfig> {
+        object : VslBeautyFullSubFeatureConfig, VslBeautyFullExpandFeature by get(),
+            VslBeautyFullRemoveObjectFeature by get(),
+            VslBeautyFullEnhanceFeature by get(),
+            VslBeautyFullClothesFeature by get(),
+            VslRestoreFeature by get(),
+            VslBeautifyTemplateFeature by get(),
+            VslArtFeature by get(),
+            VslArtPremiumFeature by get(),
+            VslRemoveBgFeature by get() {}
+    }
+
+    single<VslBeautyFullConfig> {
+        object : VslBeautyFullConfig, VslBeautyFullCommonConfig by get(),
+            VslBeautyFullShareUiConfig by BeautyFullUiConfig,
+            VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
+            VslBeautyFullAllFeatureAdsIdConfig by get(),
+            VslBeautyFullServiceConfig by get(),
+            VslBeautyFullSubFeatureConfig by get() {}
+    }
+}

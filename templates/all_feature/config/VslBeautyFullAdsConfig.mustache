@@ -1,0 +1,71 @@
+package {{packageName}.utils.all_feature.config}
+
+import com.apero.beauty_full.api.config.ads.VslBeautyFullAllFeatureAdsIdConfig
+import {packageName}.BuildConfig
+
+class VslBeautyFullAdsConfig : VslBeautyFullAllFeatureAdsIdConfig {
+    override val rewardGenAllFeatureHigh: String = BuildConfig.show_all_down_o_reward_high
+    override val rewardGenAllFeatureNormal: String = BuildConfig.show_all_down_o_reward
+    override val idBannerAllFeatureHigh: String
+        get() = "TODO"
+    override val idBannerAllFeatureNormal: String
+        get() = "TODO"
+    override val idBannerShareHigh: String
+        get() = "TODO"
+    override val idBannerShareNormal: String
+        get() = "TODO"
+    override val idBannerStyleHigh: String
+        get() = "TODO"
+    override val idNativeHighFloor: String
+        get() = BuildConfig.show_beauty_slp_a_native_high
+    override val idNativeNormalFloor: String
+        get() = BuildConfig.show_beauty_slp_a_native
+    override val idInterstitialHighPriority: String
+        get() = ""
+    override val idInterstitialMediumPriority: String
+        get() = ""
+    override val idInterstitialLowPriority: String
+        get() = ""
+    override val idRewardGenRestoreHigh: String
+        get() = BuildConfig.show_restore_gen_o_reward_high
+    override val idRewardGenRestoreNormal: String
+        get() = BuildConfig.show_restore_gen_o_reward
+    override val idBannerAdStyleNormal: String
+        get() = ""
+    override val idBannerAdStyleHigh: String
+        get() = ""
+    override val idRewardGenTemplateHigh: String
+        get() = BuildConfig.show_beautytemplate_gen_o_reward_high
+    override val idRewardGenTemplateNormal: String
+        get() = BuildConfig.show_beautytemplate_gen_o_reward
+    override val idBannerTemplateHigh: String
+        get() = ""
+    override val idBannerTemplateNormal: String
+        get() = ""
+    override val idBannerArtHigh: String
+        get() = ""
+    override val idBannerArtNormal: String
+        get() = ""
+    override val idRewardGenArtHigh: String
+        get() = ""
+    override val idRewardGenArtNormal: String
+        get() = ""
+    override val idRewardGenArtPremiumHigh: String
+        get() = BuildConfig.show_artpremium_gen_o_reward_high
+    override val idRewardGenArtPremiumNormal: String
+        get() = BuildConfig.show_artpremium_gen_o_reward
+    override val idBannerArtPremiumHigh: String
+        get() = ""
+    override val idBannerArtPremiumNormal: String
+        get() = ""
+    override val idBannerStyleNormal: String
+        get() = "TODO"
+    override val idBannerRemoveBgHigh: String
+        get() = ""
+    override val idBannerRemoveBgNormal: String
+        get() = ""
+    override val idRewardGenRemoveBgHigh: String
+        get() = BuildConfig.show_removebg_gen_o_reward_high
+    override val idRewardGenRemoveBgNormal: String
+        get() = BuildConfig.show_removebg_gen_o_reward
+}

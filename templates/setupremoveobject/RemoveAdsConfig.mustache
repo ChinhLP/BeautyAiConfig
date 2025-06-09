@@ -1,0 +1,13 @@
+package {{packageName}.utils.setupremoveobject}
+
+
+import com.apero.beauty_full.common.removeobject.api.config.VslRemoveObjectAdsConfig
+import {packageName}.BuildConfig
+
+
+class RemoveAdsConfig : VslRemoveObjectAdsConfig {
+    override val rewardGenRemoveObjectHigh: String
+        get() = BuildConfig.show_remove_gen_o_reward_high
+    override val rewardGenRemoveObjectNormal: String
+        get() = BuildConfig.show_remove_gen_o_reward
+}

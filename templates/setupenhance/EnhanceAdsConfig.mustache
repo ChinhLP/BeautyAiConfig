@@ -1,0 +1,14 @@
+package {{packageName}.utils.setupenhance}
+
+
+import com.apero.beauty_full.common.enhance.api.config.VslEnhanceAdsConfig
+import {packageName}.BuildConfig
+
+
+class EnhanceAdsConfig : VslEnhanceAdsConfig {
+
+    override val rewardGenEnhanceHigh: String = BuildConfig.reward_gen_enhance_high
+
+    override val rewardGenEnhanceNormal: String = BuildConfig.reward_gen_enhance_normal
+
+}

@@ -1,0 +1,17 @@
+package {{packageName}.utils.all_feature.config}
+
+import com.apero.beauty_full.api.config.VslBeautyFullServiceConfig
+import {packageName}.BuildConfig
+
+class BeautyFullServiceConfig : VslBeautyFullServiceConfig {
+    override val appId: String
+        get() = BuildConfig.APPLICATION_ID
+    override val projectName: String
+        get() = "" // "{projectName}"
+    override val requestHash: String
+        get() = "" // "{requestHash}"
+    override val urlIntegrity: String
+        get() = "url_integrity_dev"
+    override val cloudProjectNumber: Long
+        get() = 1004234323806
+}

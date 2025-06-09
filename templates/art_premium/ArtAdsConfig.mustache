@@ -1,0 +1,28 @@
+package {{packageName}.utils.art_premium}
+
+import com.apero.beauty_full.api.config.subfeauture.config_art_premium.ui.VslArtPremiumUiConfig
+import {packageName}.R
+
+
+class ArtPremiumUiConfig() : VslArtPremiumUiConfig {
+    override val topBarColor: Int
+        get() = R.color.art_premium_topbar
+    override val bottomBarColor: Int
+        get() = R.color.art_premium_topbar
+    override val rvTextColor: Int
+        get() = R.color.black
+    override val rvTextFocusColor: Int
+        get() = R.color.art_premium_loading
+    override val tabLayoutColor: Int
+        get() = R.drawable.vsl_tab_layout
+    override val imgNoneColor: Int
+        get() = R.color.art_premium_img_none
+    override val loadingColor: Int
+        get() = R.color.art_premium_loading
+    override val backgroundColor: Int
+        get() = R.color.art_premium_topbar
+    override val icBack: Int
+        get() = R.drawable.beautify_ic_back
+    override val icApply: Int
+        get() = com.apero.beauty_full.R.drawable.beautify_ic_check
+}

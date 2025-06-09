@@ -1,0 +1,24 @@
+package {{packageName}.utils.art}
+
+import com.ads.control.ads.wrapper.ApRewardAd
+import com.apero.art.api.config.ads.VslArtAdsConfig
+
+class ArtAdsConfig : VslArtAdsConfig {
+    override val rewardAdArtReLoaded: ApRewardAd?
+        get() = null
+    override val idRewardGenArtHigh: String
+        get() = ""
+    override val idRewardGenArtNormal: String
+        get() = ""
+    override val idBannerArtHigh: String
+        get() = ""
+    override val idBannerArtNormal: String
+        get() = ""
+
+    override fun setNewAdsRewardArt(rewardAdArtLoaded: ApRewardAd?) {}
+
+    override fun shouldLoadRewardArtAd(
+        isShowRewardArtHigh: Boolean,
+        isShowRewardArtNormal: Boolean
+    ) {}
+}
