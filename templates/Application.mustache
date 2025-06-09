@@ -11,17 +11,12 @@ import com.apero.beauty_full.VslBeautyFullEntry
 class {{applicationClassShort}} : Application() {
     override fun onCreate() {
         super.onCreate()
-        val commonConfig   = CommonConfig({{sharedPrefClassShort}}(this), this)
-        val serviceConfig  = BeautyFullServiceConfig()
-        val adsConfig      = VslBeautyFullAdsConfig()
-        val beautyProvider = BeautyConfigProvider(commonConfig, adsConfig, serviceConfig)
-
+        
         VslBeautyFullEntry.initialize(
-            context            = this,
-            commonConfig       = commonConfig,
-            serviceConfig      = serviceConfig,
-            allFeatureAdsIdConfig = adsConfig,
-            beautyConfigProvider  = beautyProvider
+            context = this,
+            KoinPlatform.getKoin().get(),
+            fittingConfig = fittingProvider(),
+            beautyPlusConfig = BeautyConfigProvider(this),
         )
     }
 }
