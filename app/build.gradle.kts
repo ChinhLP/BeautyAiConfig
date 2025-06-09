@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation("apero:beauty-full:1.0.0-alpha10")
+    implementation("apero:beauty-full:1.3.1-alpha02")
     implementation(libs.apero.ads)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
