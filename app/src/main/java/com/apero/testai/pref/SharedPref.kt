@@ -14,4 +14,17 @@ import com.apero.testai.App
         get() = sharedPref.getBoolean(IS_FIRST_REQUEST_PERMISSION_CAMERA, true)
         set(value) = sharedPref.edit { putBoolean(IS_FIRST_REQUEST_PERMISSION_CAMERA, value) }
 
+     companion object {
+         private const val IS_FIRST_REQUEST_PERMISSION_CAMERA = "is_first_request_permission_camera"
+         private var instance: SharedPref? = null
+
+         @Synchronized
+         fun getInstance(): SharedPref {
+             if (instance == null) {
+                 instance = SharedPref()
+             }
+             return instance!!
+         }
+     }
+
 }
