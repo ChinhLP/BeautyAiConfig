@@ -49,7 +49,7 @@ import com.apero.restore.api.config.ui.VslRestoreUiConfig
 object BeautyFullConfigProvider {
 
     // SharedPref
-    val sharedPref: SharedPref by lazy { SharedPref.getInstance(App.instance) }
+    val sharedPref: SharedPref by lazy { SharedPref.getInstance() }
 
     // Common Config
     val commonConfig: VslBeautyFullCommonConfig by lazy {

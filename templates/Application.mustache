@@ -13,10 +13,11 @@ class {{applicationClassShort}} : Application() {
         super.onCreate()
 
         VslBeautyFullEntry.initialize(
-            context = this,
-            config = BeautyFullConfigProvider.beautyFullConfig,
-            fittingConfig = fittingProvider(),
-            beautyPlusConfig = BeautyConfigProvider(this),
-        )
+                    context = this,
+                    config = BeautyFullConfigProvider.beautyFullConfig,
+                    beautyPlusConfig = BeautyFullConfigProvider(),
+                    fittingConfig = BeautyConfigProvider(),
+                    singleFeatureAction = null
+                )
     }
 }
