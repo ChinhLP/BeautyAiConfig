@@ -2,9 +2,8 @@ package {{packageName}.utils.beautifytemplate}
 
 import com.apero.beautify_template.api.config.ui.VslBeautifyTemplateUiConfig
 import {packageName}.data.sharedpref.SharedPref
-import org.koin.mp.KoinPlatform
 
 class BeautifyTemplateUiConfig: VslBeautifyTemplateUiConfig {
     override val numberShowDialogServiceBeautifyTemplateError: Int
-        get() = KoinPlatform.getKoin().get<SharedPref>().numberShowDialogServiceError
+        get() = SharedPref.getInstance().numberShowDialogServiceError
 }

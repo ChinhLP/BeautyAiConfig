@@ -8,7 +8,6 @@ import {packageName}.data.sharedpref.SharedPref
 import {packageName}.App
 import {packageName}.App.Companion.instance
 import {packageName}.BuildConfig
-import org.koin.java.KoinJavaComponent.inject
 
 class BeautyConfigProvider : VslBeautyFullBeautyConfigProvider(App.instance) {
     private val sharedPref: SharedPref by inject(SharedPref::class.java)

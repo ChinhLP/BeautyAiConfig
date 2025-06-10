@@ -10,11 +10,10 @@ import com.apero.beauty_full.common.clothes.config.modelconfig.VslStringConfigDi
 import com.apero.beauty_full.common.clothes.config.modelconfig.VslStringsConfigModel
 import {packageName}.data.sharedpref.SharedPref
 import {packageName}.BuildConfig
-import org.koin.mp.KoinPlatform
 
 
 object ClothesFeature : VslBeautyFullClothesFeature {
-    val sharedPref: SharedPref = KoinPlatform.getKoin().get()
+    val sharedPref: SharedPref = SharedPref.getInstance()
     override val fonts: VslFontsConfigModel
         get() = VslFontsConfigModel()
     override val icons: VslIconsConfigModel
