@@ -15,8 +15,8 @@ class {{applicationClassShort}} : Application() {
         VslBeautyFullEntry.initialize(
                     context = this,
                     config = BeautyFullConfigProvider.beautyFullConfig,
-                    beautyPlusConfig = BeautyFullConfigProvider(),
-                    fittingConfig = BeautyConfigProvider(),
+                    beautyPlusConfig = BeautyConfigProvider(),
+                    fittingConfig = fittingProvider(),
                     singleFeatureAction = null
                 )
     }
