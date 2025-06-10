@@ -45,99 +45,111 @@ import {packageName}.utils.setupremoveobject.RemoveAdsConfig
 import {packageName}.utils.setupremoveobject.RemoveUiConfig
 import com.apero.restore.api.config.VslRestoreFeature
 import com.apero.restore.api.config.ui.VslRestoreUiConfig
-import org.koin.android.ext.koin.androidApplication
-import org.koin.dsl.lazyModule
 
-val moduleConfigModule = lazyModule {
-    single<VslBeautyFullCommonConfig> { CommonConfig(get(), applicationContext = androidApplication()) }
-    single<VslBeautyFullAllFeatureAdsIdConfig> { VslBeautyFullAdsConfig() }
-    single<VslBeautyFullServiceConfig> { BeautyFullServiceConfig() }
-//    expand
-    single<VslExpandUiConfig> { ExpandUiConfig() }
-    single<VslExpandAdsConfig> { ExpandAdsConfig() }
-    single<VslBeautyFullExpandFeature> {
+object BeautyFullConfigProvider {
+
+    // SharedPref
+    val sharedPref: SharedPref by lazy { SharedPref.getInstance(App.instance) }
+
+    // Common Config
+    val commonConfig: VslBeautyFullCommonConfig by lazy {
+        CommonConfig(sharedPref, applicationContext = App.instance)
+    }
+
+    // Ads Config
+    val adsConfig: VslBeautyFullAllFeatureAdsIdConfig by lazy { VslBeautyFullAdsConfig() }
+
+    // Service Config
+    val serviceConfig: VslBeautyFullServiceConfig by lazy { BeautyFullServiceConfig() }
+
+    // Expand Feature
+    val expandUiConfig: VslExpandUiConfig by lazy { ExpandUiConfig() }
+    val expandAdsConfig: VslExpandAdsConfig by lazy { ExpandAdsConfig() }
+    val expandFeature: VslBeautyFullExpandFeature by lazy {
         object : VslBeautyFullExpandFeature,
-            VslExpandUiConfig by get(),
-            VslExpandAdsConfig by get() {}
+            VslExpandUiConfig by expandUiConfig,
+            VslExpandAdsConfig by expandAdsConfig {}
     }
 
-//    enhance
-    single<VslEnhanceUiConfig> { EnhanceUiConfig() }
-    single<VslEnhanceAdsConfig> { EnhanceAdsConfig() }
-    single<VslBeautyFullEnhanceFeature> {
+    // Enhance Feature
+    val enhanceUiConfig: VslEnhanceUiConfig by lazy { EnhanceUiConfig() }
+    val enhanceAdsConfig: VslEnhanceAdsConfig by lazy { EnhanceAdsConfig() }
+    val enhanceFeature: VslBeautyFullEnhanceFeature by lazy {
         object : VslBeautyFullEnhanceFeature,
-            VslEnhanceUiConfig by get(),
-            VslEnhanceAdsConfig by get() {}
+            VslEnhanceUiConfig by enhanceUiConfig,
+            VslEnhanceAdsConfig by enhanceAdsConfig {}
     }
 
-//    VslRestoreFeature
-    single<VslRestoreUiConfig> { RestoreUiConfig() }
-    single<VslRestoreFeature> {
+    // Restore Feature
+    val restoreUiConfig: VslRestoreUiConfig by lazy { RestoreUiConfig() }
+    val restoreFeature: VslRestoreFeature by lazy {
         object : VslRestoreFeature,
-            VslRestoreUiConfig by get() {}
+            VslRestoreUiConfig by restoreUiConfig {}
     }
 
-//    VslBeautifyTemplateFeature
-    single<VslBeautifyTemplateUiConfig> { BeautifyTemplateUiConfig() }
-    single<VslBeautifyTemplateFeature> {
+    // Beautify Template Feature
+    val beautifyTemplateUiConfig: VslBeautifyTemplateUiConfig by lazy { BeautifyTemplateUiConfig() }
+    val beautifyTemplateFeature: VslBeautifyTemplateFeature by lazy {
         object : VslBeautifyTemplateFeature,
-            VslBeautifyTemplateUiConfig by get() {}
+            VslBeautifyTemplateUiConfig by beautifyTemplateUiConfig {}
     }
 
-//    Art
-    single<VslArtUiConfig> { ArtUiConfig() }
-    single<VslArtAdsConfig> { ArtAdsConfig() }
-    single<VslArtFeature> {
+    // Art Feature
+    val artUiConfig: VslArtUiConfig by lazy { ArtUiConfig() }
+    val artAdsConfig: VslArtAdsConfig by lazy { ArtAdsConfig() }
+    val artFeature: VslArtFeature by lazy {
         object : VslArtFeature,
-            VslArtUiConfig by get(),
-            VslArtAdsConfig by get() {}
+            VslArtUiConfig by artUiConfig,
+            VslArtAdsConfig by artAdsConfig {}
     }
 
-//    remove object
-    single<VslRemoveObjectAdsConfig> { RemoveAdsConfig() }
-    single<VslRemoveObjectUiConfig> { RemoveUiConfig() }
-    single<VslBeautyFullRemoveObjectFeature> {
+    // Remove Object Feature
+    val removeAdsConfig: VslRemoveObjectAdsConfig by lazy { RemoveAdsConfig() }
+    val removeUiConfig: VslRemoveObjectUiConfig by lazy { RemoveUiConfig() }
+    val removeObjectFeature: VslBeautyFullRemoveObjectFeature by lazy {
         object : VslBeautyFullRemoveObjectFeature,
-            VslRemoveObjectAdsConfig by get(),
-            VslRemoveObjectUiConfig by get() {}
+            VslRemoveObjectAdsConfig by removeAdsConfig,
+            VslRemoveObjectUiConfig by removeUiConfig {}
     }
 
-//    clothes
-    single<VslBeautyFullClothesFeature> { ClothesFeature }
+    // Clothes Feature
+    val clothesFeature: VslBeautyFullClothesFeature = ClothesFeature
 
-//    art premium
-    single<VslArtPremiumUiConfig> { ArtPremiumUiConfig() }
-    single<VslArtPremiumFeature> {
+    // Art Premium
+    val artPremiumUiConfig: VslArtPremiumUiConfig by lazy { ArtPremiumUiConfig() }
+    val artPremiumFeature: VslArtPremiumFeature by lazy {
         object : VslArtPremiumFeature,
-            VslArtPremiumUiConfig by get() {}
+            VslArtPremiumUiConfig by artPremiumUiConfig {}
     }
 
-
-//    VslRemoveBackground
-    single<VslRemoveBgUiConfig> { RemoveBgUiConfig }
-    single<VslRemoveBgFeature> {
+    // Remove Background Feature
+    val removeBgFeature: VslRemoveBgFeature by lazy {
         object : VslRemoveBgFeature,
-            VslRemoveBgUiConfig by get() {}
+            VslRemoveBgUiConfig by RemoveBgUiConfig {}
     }
 
-    single<VslBeautyFullSubFeatureConfig> {
-        object : VslBeautyFullSubFeatureConfig, VslBeautyFullExpandFeature by get(),
-            VslBeautyFullRemoveObjectFeature by get(),
-            VslBeautyFullEnhanceFeature by get(),
-            VslBeautyFullClothesFeature by get(),
-            VslRestoreFeature by get(),
-            VslBeautifyTemplateFeature by get(),
-            VslArtFeature by get(),
-            VslArtPremiumFeature by get(),
-            VslRemoveBgFeature by get() {}
+    // SubFeature Config
+    val subFeatureConfig: VslBeautyFullSubFeatureConfig by lazy {
+        object : VslBeautyFullSubFeatureConfig,
+            VslBeautyFullExpandFeature by expandFeature,
+            VslBeautyFullRemoveObjectFeature by removeObjectFeature,
+            VslBeautyFullEnhanceFeature by enhanceFeature,
+            VslBeautyFullClothesFeature by clothesFeature,
+            VslRestoreFeature by restoreFeature,
+            VslBeautifyTemplateFeature by beautifyTemplateFeature,
+            VslArtFeature by artFeature,
+            VslArtPremiumFeature by artPremiumFeature,
+            VslRemoveBgFeature by removeBgFeature {}
     }
 
-    single<VslBeautyFullConfig> {
-        object : VslBeautyFullConfig, VslBeautyFullCommonConfig by get(),
+    // Final BeautyFullConfig
+    val beautyFullConfig: VslBeautyFullConfig by lazy {
+        object : VslBeautyFullConfig,
+            VslBeautyFullCommonConfig by commonConfig,
             VslBeautyFullShareUiConfig by BeautyFullUiConfig,
             VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
-            VslBeautyFullAllFeatureAdsIdConfig by get(),
-            VslBeautyFullServiceConfig by get(),
-            VslBeautyFullSubFeatureConfig by get() {}
+            VslBeautyFullAllFeatureAdsIdConfig by adsConfig,
+            VslBeautyFullServiceConfig by serviceConfig,
+            VslBeautyFullSubFeatureConfig by subFeatureConfig {}
     }
 }

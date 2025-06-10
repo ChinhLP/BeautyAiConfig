@@ -14,7 +14,7 @@ class {{applicationClassShort}} : Application() {
 
         VslBeautyFullEntry.initialize(
             context = this,
-            KoinPlatform.getKoin().get(),
+            config = BeautyFullConfigProvider.beautyFullConfig,
             fittingConfig = fittingProvider(),
             beautyPlusConfig = BeautyConfigProvider(this),
         )
