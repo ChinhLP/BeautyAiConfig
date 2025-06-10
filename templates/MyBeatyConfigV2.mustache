@@ -9,7 +9,7 @@ import {packageName}.App
 import {packageName}.App.Companion.instance
 import {packageName}.BuildConfig
 
-class BeautyConfigProvider : VslBeautyFullBeautyConfigProvider(App.instance) {
+class BeautyConfigProvider : VslBeautyFullBeautyConfigProvider(App.getInstance()) {
     private val sharedPref: SharedPref by inject(SharedPref::class.java)
 
     override fun BeautyUIConfigBuilderV2.configureUIConfig() = apply {
@@ -61,7 +61,7 @@ class BeautyConfigProvider : VslBeautyFullBeautyConfigProvider(App.instance) {
     }
 
     override fun getAppNameReport(): String {
-        return instance.getString(R.string.app_name)
+        return App.getInstance().getString(R.string.app_name)
     }
 
     override fun getLanguage(): String {
