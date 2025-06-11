@@ -45,7 +45,6 @@ import {packageName}.utils.setupremoveobject.RemoveAdsConfig
 import {packageName}.utils.setupremoveobject.RemoveUiConfig
 import com.apero.restore.api.config.VslRestoreFeature
 import com.apero.restore.api.config.ui.VslRestoreUiConfig
-import {packageName}.utils.all_feature.config.ShareAction
 
 object BeautyFullConfigProvider {
 
@@ -147,7 +146,7 @@ object BeautyFullConfigProvider {
     val beautyFullConfig: VslBeautyFullConfig by lazy {
             object : VslBeautyFullConfig,
                 VslBeautyFullCommonConfig by commonConfig,
-                VslBeautyFullShareUiConfig by ShareAction,
+                VslBeautyFullShareUiConfig by BeautyFullUiConfig,
                 VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
                 VslBeautyFullAllFeatureAdsIdConfig by adsConfig,
                 VslBeautyFullServiceConfig by serviceConfig,
