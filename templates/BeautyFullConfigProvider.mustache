@@ -53,7 +53,7 @@ object BeautyFullConfigProvider {
 
     // Common Config
     val commonConfig: VslBeautyFullCommonConfig by lazy {
-        CommonConfig(sharedPref, applicationContext = App.instance)
+        CommonConfig(sharedPref, applicationContext = App.getInstance)
     }
 
     // Ads Config
@@ -144,12 +144,21 @@ object BeautyFullConfigProvider {
 
     // Final BeautyFullConfig
     val beautyFullConfig: VslBeautyFullConfig by lazy {
-        object : VslBeautyFullConfig,
-            VslBeautyFullCommonConfig by commonConfig,
-            VslBeautyFullShareUiConfig by BeautyFullUiConfig,
-            VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
-            VslBeautyFullAllFeatureAdsIdConfig by adsConfig,
-            VslBeautyFullServiceConfig by serviceConfig,
-            VslBeautyFullSubFeatureConfig by subFeatureConfig {}
-    }
+            object : VslBeautyFullConfig,
+                VslBeautyFullCommonConfig by commonConfig,
+                VslBeautyFullShareUiConfig by ShareAction,
+                VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
+                VslBeautyFullAllFeatureAdsIdConfig by adsConfig,
+                VslBeautyFullServiceConfig by serviceConfig,
+                VslBeautyFullSubFeatureConfig by subFeatureConfig {
+                override val idBannerArtHigh: String
+                    get() = artAdsConfig.idBannerArtHigh
+                override val idRewardGenArtHigh: String
+                    get() = BuildConfig.id_reward_gen_art_high
+                override val idBannerArtNormal: String
+                    get() = BuildConfig.id_banner_art_normal
+                override val idRewardGenArtNormal: String
+                    get() = BuildConfig.id_reward_gen_art_normal
+            }
+        }
 }
