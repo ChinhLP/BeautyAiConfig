@@ -1,0 +1,166 @@
+package com.apero.testai.di
+
+import com.apero.testai.utils.art.ArtAdsConfig
+import com.apero.testai.utils.art.ArtUiConfig
+import com.apero.testai.utils.setupexpand.ExpandAdsConfig
+import com.apero.art.api.config.VslArtFeature
+import com.apero.art.api.config.ads.VslArtAdsConfig
+import com.apero.art.api.config.ui.VslArtUiConfig
+import com.apero.beautify_template.api.config.VslBeautifyTemplateFeature
+import com.apero.beautify_template.api.config.ui.VslBeautifyTemplateUiConfig
+import com.apero.beauty_full.api.config.VslBeautyFullCommonConfig
+import com.apero.beauty_full.api.config.VslBeautyFullConfig
+import com.apero.beauty_full.api.config.VslBeautyFullServiceConfig
+import com.apero.beauty_full.api.config.ads.VslBeautyFullAllFeatureAdsIdConfig
+import com.apero.beauty_full.api.config.subfeauture.VslBeautyFullClothesFeature
+import com.apero.beauty_full.api.config.subfeauture.VslBeautyFullSubFeatureConfig
+import com.apero.beauty_full.api.config.subfeauture.config_art_premium.VslArtPremiumFeature
+import com.apero.beauty_full.api.config.subfeauture.config_art_premium.ui.VslArtPremiumUiConfig
+import com.apero.beauty_full.api.config.subfeauture.remove_background.VslRemoveBgFeature
+import com.apero.beauty_full.api.config.subfeauture.remove_background.VslRemoveBgUiConfig
+import com.apero.beauty_full.api.config.ui.VslBeautyFullAllFeatureUiConfig
+import com.apero.beauty_full.api.config.ui.VslBeautyFullShareUiConfig
+import com.apero.beauty_full.common.enhance.api.config.VslBeautyFullEnhanceFeature
+import com.apero.beauty_full.common.enhance.api.config.VslEnhanceAdsConfig
+import com.apero.beauty_full.common.enhance.api.config.VslEnhanceUiConfig
+import com.apero.beauty_full.common.expand.api.config.VslBeautyFullExpandFeature
+import com.apero.beauty_full.common.expand.api.config.VslExpandAdsConfig
+import com.apero.beauty_full.common.expand.api.config.VslExpandUiConfig
+import com.apero.beauty_full.common.removeobject.api.config.VslBeautyFullRemoveObjectFeature
+import com.apero.beauty_full.common.removeobject.api.config.VslRemoveObjectAdsConfig
+import com.apero.beauty_full.common.removeobject.api.config.VslRemoveObjectUiConfig
+import com.apero.testai.utils.all_feature.config.BeautyFullServiceConfig
+import com.apero.testai.utils.all_feature.config.BeautyFullUiConfig
+import com.apero.testai.utils.all_feature.config.CommonConfig
+import com.apero.testai.utils.all_feature.config.VslBeautyFullAdsConfig
+import com.apero.testai.utils.art_premium.ArtPremiumUiConfig
+import com.apero.testai.utils.beautifytemplate.BeautifyTemplateUiConfig
+import com.apero.testai.utils.clothes.ClothesFeature
+import com.apero.testai.utils.remove_bg.RemoveBgUiConfig
+import com.apero.testai.utils.restore.RestoreUiConfig
+import com.apero.testai.utils.setupenhance.EnhanceAdsConfig
+import com.apero.testai.utils.setupenhance.EnhanceUiConfig
+import com.apero.testai.utils.setupexpand.ExpandUiConfig
+import com.apero.testai.utils.setupremoveobject.RemoveAdsConfig
+import com.apero.testai.utils.setupremoveobject.RemoveUiConfig
+import com.apero.restore.api.config.VslRestoreFeature
+import com.apero.restore.api.config.ui.VslRestoreUiConfig
+import com.apero.testai.App
+import com.apero.testai.BuildConfig
+import com.apero.testai.pref.SharedPref
+
+object BeautyFullConfigProvider {
+    // SharedPref
+    val sharedPref: SharedPref by lazy { SharedPref.getInstance() }
+
+    // Common Config
+    val commonConfig: VslBeautyFullCommonConfig by lazy {
+        CommonConfig(sharedPref, applicationContext = App.getInstance())
+    }
+
+    // Ads Config
+    val adsConfig: VslBeautyFullAllFeatureAdsIdConfig by lazy { VslBeautyFullAdsConfig() }
+
+    // Service Config
+    val serviceConfig: VslBeautyFullServiceConfig by lazy { BeautyFullServiceConfig() }
+
+    // Expand Feature
+    val expandUiConfig: VslExpandUiConfig by lazy { ExpandUiConfig() }
+    val expandAdsConfig: VslExpandAdsConfig by lazy { ExpandAdsConfig() }
+    val expandFeature: VslBeautyFullExpandFeature by lazy {
+        object : VslBeautyFullExpandFeature,
+            VslExpandUiConfig by expandUiConfig,
+            VslExpandAdsConfig by expandAdsConfig {}
+    }
+
+    // Enhance Feature
+    val enhanceUiConfig: VslEnhanceUiConfig by lazy { EnhanceUiConfig() }
+    val enhanceAdsConfig: VslEnhanceAdsConfig by lazy { EnhanceAdsConfig() }
+    val enhanceFeature: VslBeautyFullEnhanceFeature by lazy {
+        object : VslBeautyFullEnhanceFeature,
+            VslEnhanceUiConfig by enhanceUiConfig,
+            VslEnhanceAdsConfig by enhanceAdsConfig {}
+    }
+
+    // Restore Feature
+    val restoreUiConfig: VslRestoreUiConfig by lazy { RestoreUiConfig() }
+    val restoreFeature: VslRestoreFeature by lazy {
+        object : VslRestoreFeature,
+            VslRestoreUiConfig by restoreUiConfig {}
+    }
+
+    // Beautify Template Feature
+    val beautifyTemplateUiConfig: VslBeautifyTemplateUiConfig by lazy { BeautifyTemplateUiConfig() }
+    val beautifyTemplateFeature: VslBeautifyTemplateFeature by lazy {
+        object : VslBeautifyTemplateFeature,
+            VslBeautifyTemplateUiConfig by beautifyTemplateUiConfig {}
+    }
+
+    // Art Feature
+    val artUiConfig: VslArtUiConfig by lazy { ArtUiConfig() }
+    val artAdsConfig: VslArtAdsConfig by lazy { ArtAdsConfig() }
+    val artFeature: VslArtFeature by lazy {
+        object : VslArtFeature,
+            VslArtUiConfig by artUiConfig,
+            VslArtAdsConfig by artAdsConfig {}
+    }
+
+    // Remove Object Feature
+    val removeAdsConfig: VslRemoveObjectAdsConfig by lazy { RemoveAdsConfig() }
+    val removeUiConfig: VslRemoveObjectUiConfig by lazy { RemoveUiConfig() }
+    val removeObjectFeature: VslBeautyFullRemoveObjectFeature by lazy {
+        object : VslBeautyFullRemoveObjectFeature,
+            VslRemoveObjectAdsConfig by removeAdsConfig,
+            VslRemoveObjectUiConfig by removeUiConfig {}
+    }
+
+    // Clothes Feature
+    val clothesFeature: VslBeautyFullClothesFeature = ClothesFeature
+
+    // Art Premium
+    val artPremiumUiConfig: VslArtPremiumUiConfig by lazy { ArtPremiumUiConfig() }
+    val artPremiumFeature: VslArtPremiumFeature by lazy {
+        object : VslArtPremiumFeature,
+            VslArtPremiumUiConfig by artPremiumUiConfig {}
+    }
+
+    // Remove Background Feature
+    val removeBgFeature: VslRemoveBgFeature by lazy {
+        object : VslRemoveBgFeature,
+            VslRemoveBgUiConfig by RemoveBgUiConfig {}
+    }
+
+    // SubFeature Config
+    val subFeatureConfig: VslBeautyFullSubFeatureConfig by lazy {
+        object : VslBeautyFullSubFeatureConfig,
+            VslBeautyFullExpandFeature by expandFeature,
+            VslBeautyFullRemoveObjectFeature by removeObjectFeature,
+            VslBeautyFullEnhanceFeature by enhanceFeature,
+            VslBeautyFullClothesFeature by clothesFeature,
+            VslRestoreFeature by restoreFeature,
+            VslBeautifyTemplateFeature by beautifyTemplateFeature,
+            VslArtFeature by artFeature,
+            VslArtPremiumFeature by artPremiumFeature,
+            VslRemoveBgFeature by removeBgFeature {}
+    }
+
+    // Final BeautyFullConfig
+    val beautyFullConfig: VslBeautyFullConfig by lazy {
+        object : VslBeautyFullConfig,
+            VslBeautyFullCommonConfig by commonConfig,
+            VslBeautyFullShareUiConfig by BeautyFullUiConfig,
+            VslBeautyFullAllFeatureUiConfig by BeautyFullUiConfig,
+            VslBeautyFullAllFeatureAdsIdConfig by adsConfig,
+            VslBeautyFullServiceConfig by serviceConfig,
+            VslBeautyFullSubFeatureConfig by subFeatureConfig {
+            override val idBannerArtHigh: String
+                get() = BuildConfig.BANNER_ART_HIGH
+            override val idRewardGenArtHigh: String
+                get() = BuildConfig.REWARD_GEN_ART_HIGH
+            override val idBannerArtNormal: String
+                get() = BuildConfig.BANNER_ART_NORMAL
+            override val idRewardGenArtNormal: String
+                get() = BuildConfig.REWARD_GEN_ART_NORMAL
+        }
+    }
+} 

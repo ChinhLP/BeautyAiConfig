@@ -1,0 +1,16 @@
+package com.apero.testai.utils.all_feature.config
+
+import androidx.compose.ui.graphics.Color
+import com.apero.beauty_full.R
+import com.apero.beauty_full.api.config.ui.VslBeautyFullBaseUiConfig
+import com.apero.beauty_full.api.model.DownloadButton
+
+data object BeautyFullUiConfig : VslBeautyFullBaseUiConfig() {
+    override val downloadButton: DownloadButton = DownloadButton(
+        startColor = Color(0xFFB66DCF),
+        endColor = Color(0xFFF796A3),
+        text = R.string.vsl_features_dialog_result_action_positive,
+        radius = 8
+    )
+    override val isLightTheme: Boolean = true
+} 

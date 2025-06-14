@@ -1,0 +1,21 @@
+package com.apero.testai.utils.remove_bg
+
+import com.apero.testai.R
+import com.apero.beauty_full.api.config.subfeauture.remove_background.VslRemoveBgUiConfig
+
+data object RemoveBgUiConfig : VslRemoveBgUiConfig {
+    override val iconBackRemoveBg: Int = R.drawable.ic_back_remove_bg
+    override val iconApplyRemoveBg: Int = R.drawable.ic_apply
+    override val removeBgBtnTopColor: Int = R.color.remove_bg_btn_top
+    override val removeBgBtnMidColor: Int = R.color.remove_bg_btn_middle
+    override val removeBgBtnBottomColor: Int = R.color.remove_bg_btn_bottom
+    override val removeBgBackgroundColor: Int = R.color.remove_bg_white
+    override val removeBgTopBarColor: Int = R.color.remove_bg_top_bar_white
+    override val iconCloseDialogRemoveBg: Int = R.drawable.ic_close_gray
+    override val removeBgDialogBackgroundColor: Int = R.color.white
+    override val removeBgDialogBackgroundBtnNegativeColor: Int = R.color.remove_bg_dialog_bg_color
+    override val removeBgDialogTitleColor: Int = R.color.remove_bg_dialog_title
+    override val removeBgDialogTextNegativeColor: Int = R.color.color_131318
+    override val removeBgDialogTextPositiveColor: Int = R.color.white
+    override val iconAdsDialogRemoveBg: Int = R.drawable.ic_ads_reward
+} 

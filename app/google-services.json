@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "359880145535",
+    "project_id": "aip303-perfectme",
+    "storage_bucket": "aip303-perfectme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359880145535:android:2015b5ce8a70078c335d4a",
+        "android_client_info": {
+          "package_name": "com.apero.testai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCInecKTZzVko-lJqc9FqvWOWQGFxYwUw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
